@@ -1,68 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Формы</title>
-</head>
-<body>
-  <form action="">
-    <fieldset>
-      <legend>
-        Данные пользователя
-      </legend>
-      <label>
-        Имя:
-        <input type="text" name="name" size="30" maxlength="100">
-      </label>
-      <br />
-      <label>
-        Email:
-        <input type="email" name="email" size="30" maxlength="100">
-      </label>
-      <br />
-    </fieldset>
-      <br />
-    <fieldset>
-      <legend>
-        Ваша мнение:
-      </legend>
-      <p>
-        <label for="hear-about">
-          Как вы узнали о нас?
-        </label>
-        <select name="referrer" id="hear-about">
-          <option value="google">Google</option>
-          <option value="google">Yandex</option>
-          <option value="google">Реклама</option>
-          <option value="google">От друзей</option>
-        </select>
-      </p>
-      <p>
-        Воспользуетесь ли услугой еще раз?
-        <br />
-        <label>
-          <input type="radio" name="rating" value="yes" />
-          Да
-        </label>
-        <label>
-          <input type="radio" name="rating" value="no" />
-          Нет
-        </label>
-      </p>
-      <p>
-        <label for="comments">
-          Комментарий:
-        </label>
-        <br />
-        <textarea rows="4" cols="10" id="comments">
-        </textarea>
-      </p>
-        <label>
-          <input type="checkbox" name="subs" checked="checked" />
-        </label>
-      <br />
-      <input type="submit" value="Submit button" />
-    </fieldset>
-  </form>
-</body>
+<html>
+    <head>
+        <title>Python group Django</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div>
+            <h1>Python group Django</h1>
+        </div>
+
+        <ul>
+            {% for post in posts %}
+            <li>
+                <h2><a href="">{{post.title}}</a></h2>
+                <i>Дата публикации: {{post.published_date}}</i>
+                <p>{{ post.text|linebreaksbr }}</p>
+                <hr>
+            </li>
+            {% endfor %}
+        </ul>
+    </body>
 </html>
+
