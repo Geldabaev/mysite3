@@ -1,21 +1,29 @@
-"""
-python manage.py shell
->>> from django.contrib.auth.models import User
->>> from blog.models import MyPost
->>> user = User.objects.get(username='yunus')
->>> user
->>> MyPost(author=user, title='Python Developer', text='Питон молывлм мвоыалмвы')
->>> m1 = _
->>> m1.save()
->>> m1.title4
->>> m1.pk
->>> from django.db import connection
->>> connection.queries
->>> exit()
-ipython
-django-extensions
-INSTALLED_APPS = [
-    "django_extensions",
-]
-pyhton manage.py shell_plus --print-sql
-"""
+posts = ['python', "C++", "Dart"]
+"list -это упорядоченный, изменяемый тип данных"
+
+posts.append("C#")
+print(posts[0])
+
+posts = ["python", "c++", "kotlin", "java"]
+posts2 = {'python': 'django', "c#": "pandas"}
+
+test = {'posts': posts, "posts2": posts2}
+print(type(test))
+"dict -это изменяемый, неупорядоченный пары ключ и занчения"
+print(test['posts2']["python"])
+
+
+x3 = {'a': ['python', 'js', 'kotlin'], 'b': {'dart': 'flutter', 'python': 'django'}}
+
+
+
+
+for i in 'yunus':
+    print(i)
+
+for i in range(10):
+    print(i)
+
+posts2 = {'python': 'django', "c#": "pandas"}
+for post in posts2:
+    print(posts2[post])
