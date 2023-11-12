@@ -6,7 +6,6 @@ from .models import MyPost
 
 def index(request):
     posts = MyPost.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    print(posts, "****")
     return render(request, 'blog/index.html', {'posts': posts})
 
 
