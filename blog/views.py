@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseNotFound
 from django.utils import timezone
 from .models import MyPost
@@ -16,3 +16,7 @@ def category(request, catid):
 def pageNotFound(request, exception):
     return HttpResponseNotFound("<h1>Странциа не найдена</h1>")
 
+
+def post_info(request, pk):
+    post = get_object_or_404(MyPost, pk=pk)
+    return render(request, 'blog/post_info.html', {'post': post})
