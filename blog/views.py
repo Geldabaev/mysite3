@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseNotFound
 from django.utils import timezone
 from .models import MyPost
+from .forms import PostForm
 
 
 def index(request):
@@ -20,3 +21,8 @@ def pageNotFound(request, exception):
 def post_info(request, pk):
     post = get_object_or_404(MyPost, pk=pk)
     return render(request, 'blog/post_info.html', {'post': post})
+
+
+def post_new(request):
+    form = PostForm()
+    return render(request, 'blog/post_add.html', {'form': form})
