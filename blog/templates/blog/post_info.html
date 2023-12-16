@@ -5,7 +5,11 @@
     {% if post.photo %}
         <p><img src="{{ post.photo.url }}" width="500" height="500"></p>
     {% endif %}
-    <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+
+    {% if user.is_authenticated %}
+     <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+    {% endif %}
+
     <div class="date">
         {{ post.published_date }}
     </div>
