@@ -66,3 +66,10 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_add.html', {'form': form})
+
+
+def post_draft(request):
+    posts = MyPost.objects.filter(published_date__isnull=True).order_by('created_date')
+    print(posts)
+    return render(request, 'blog/post_draft.html', {'posts': posts})
+
