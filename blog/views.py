@@ -73,3 +73,14 @@ def post_draft(request):
     print(posts)
     return render(request, 'blog/post_draft.html', {'posts': posts})
 
+
+def post_publish(request, pk):
+    post = get_object_or_404(MyPost, pk=pk)
+    post.publish()
+    return redirect('post_info', pk=pk)
+
+
+def post_del(request, pk):
+    post = get_object_or_404(MyPost, pk=pk)
+    post.delete()
+    return redirect('index')
